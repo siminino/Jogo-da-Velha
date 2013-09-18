@@ -146,11 +146,11 @@ int game_loop() {
 				jogar_computador(3);
 				jogada = jogar_jogador();
 				//bloco velha
-				if (jogada == 6) {
-					jogar_computador(2);	
+				if (jogada == 2) {
+					jogar_computador(8);	
 					return 1;
 				} else {
-					jogar_computador(6);
+					jogar_computador(2);
 				}
 			} else {
 				jogar_computador(7);
