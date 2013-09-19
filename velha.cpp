@@ -14,9 +14,12 @@ void desenha_velha() {
 }
 
 int obter_jogada() {
+	char entrada;
 	int jogada;
 	while (true) {
-		cin >> jogada;
+		cin >> entrada;
+		cout << entrada << "\n";
+		jogada = (int)entrada - 48;
 		if (std::find(jogados.begin(), jogados.end(), jogada) != jogados.end()) {
 			cout << "Posicao " << jogada << " já foi jogado.\n";
 		} else if (jogada >= 1 and jogada <= 9) {
@@ -82,10 +85,12 @@ int game_loop() {
 	jogar_computador(1);
 	jogada = jogar_jogador();
 
-	if (jogada == 2 or jogada == 3 or jogada == 6) {
+	if (jogada == 2 or jogada == 3) {
 		galho(7, 4, 9, 5, 8);
-	} else if (jogada == 4 or jogada == 7 or jogada == 8) {
+	} else if (jogada == 4 or jogada == 7) {
 		galho(3, 2, 9, 5, 6);
+	} else if (jogada == 6 or jogada == 8) {
+		galho(3, 2, 5, 7, 9);
 	} else if (jogada == 9) {
 		galho(3, 2, 7, 5, 4);
 	} else if (jogada == 5) {
@@ -176,7 +181,7 @@ int game_loop() {
 	return 0;
 }
 
-int main () {
+int main() {
 	int resultado;
 	resultado = game_loop();
 	if (resultado == 0) {
